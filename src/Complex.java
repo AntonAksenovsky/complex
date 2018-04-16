@@ -1,45 +1,36 @@
 public class Complex {
-    private double dReal, dImaginary;
+    private double real, imaginary;  //TODO поменять на camelCase
 
-    public Complex() {
-    }
-
-    public Complex(double dReal, double dImaginary) {
-        this.dReal = dReal;
-        this.dImaginary = dImaginary;
+    public Complex(double real, double imaginary) {
+        this.real = real;
+        this.imaginary = imaginary;
     }
 
     public String toString() {
-        if (dImaginary >= 0)
-            return dReal + " + " + dImaginary + "i";
+        if (imaginary >= 0)
+            return real + " + " + imaginary + "i";
         else
-            return dReal + " - " + -dImaginary + "i";
+            return real + " - " + -imaginary + "i";
     }
 
-    // sum of two complex numbers cA, cB
-
-    public Complex Add(Complex complexB) {
-        Complex sum = new Complex();
-        sum.dReal = dReal + complexB.dReal;
-        sum.dImaginary = dImaginary + complexB.dImaginary;
+    public Complex add(Complex complexB) {
+        Complex sum = new Complex(real, imaginary);
+        sum.real = real + complexB.real;
+        sum.imaginary = imaginary + complexB.imaginary;
         return sum;
     }
 
-    // difference of two complex numbers cA, cB
-
-    public Complex Sub(Complex complexB) {
-        Complex diff = new Complex();
-        diff.dReal = dReal - complexB.dReal;
-        diff.dImaginary = dImaginary - complexB.dImaginary;
+    public Complex subtract(Complex complexB) {
+        Complex diff = new Complex(real, imaginary);
+        diff.real = real - complexB.real;
+        diff.imaginary = imaginary - complexB.imaginary;
         return diff;
     }
 
-    // composition of two complex numbers cA, cB
-
-    public Complex Multi(Complex complexB) {
-        Complex prod = new Complex();
-        prod.dReal = dReal * complexB.dReal - dImaginary * complexB.dImaginary;
-        prod.dImaginary = dImaginary * complexB.dReal + dReal * complexB.dImaginary;
-        return prod;
+    public Complex multiply(Complex complexB) {
+        Complex comp = new Complex(real, imaginary);
+        comp.real = real * complexB.real - imaginary * complexB.imaginary;
+        comp.imaginary = imaginary * complexB.real + real * complexB.imaginary;
+        return comp;
     }
 }
